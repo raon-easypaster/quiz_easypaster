@@ -34,7 +34,7 @@ function TeamSetup({ onStartGame }) {
 
     return (
         <div className="team-setup">
-            <h1 style={{ color: '#2c3e50', fontWeight: 'bold' }}>팀 설정</h1>
+            <h1 style={{ color: '#1e3a8a', fontWeight: 'bold' }}>퀴즈 대회 팀 설정</h1>
             <form onSubmit={handleSubmit}>
                 {teamNames.map((name, index) => (
                     <div key={index} className="team-input-group">
