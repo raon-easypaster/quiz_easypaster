@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function AdminPanel({ categories, onSave, onReset }) {
     const [editedCategories, setEditedCategories] = useState(JSON.parse(JSON.stringify(categories)));
     const [expandedCategory, setExpandedCategory] = useState(null);
+
+    // Sync editedCategories when categories prop changes (e.g., after saving or resetting)
+    useEffect(() => {
+        setEditedCategories(JSON.parse(JSON.stringify(categories)));
+    }, [categories]);
 
     const handleQuestionChange = (catId, qId, field, value) => {
         const newCategories = [...editedCategories];
