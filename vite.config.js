@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/quiz_easypaster/', // Repository name
+  base: './', // Use relative path for better compatibility
 })
