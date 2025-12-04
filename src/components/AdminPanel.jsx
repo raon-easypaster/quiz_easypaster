@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function AdminPanel({ categories, onSave, onReset }) {
     const [editedCategories, setEditedCategories] = useState(JSON.parse(JSON.stringify(categories)));
     const [expandedCategory, setExpandedCategory] = useState(null);
+
+    // Sync editedCategories when categories prop changes (e.g., after saving or resetting)
+    useEffect(() => {
+        setEditedCategories(JSON.parse(JSON.stringify(categories)));
+    }, [categories]);
 
     const handleQuestionChange = (catId, qId, field, value) => {
         const newCategories = [...editedCategories];
@@ -119,7 +124,25 @@ function AdminPanel({ categories, onSave, onReset }) {
                                                         accept={q.type === 'image' ? "image/*" : "audio/*"}
                                                         onChange={(e) => handleFileUpload(cat.id, q.id, e.target.files[0])}
                                                     />
-                                                    {q.media && <span style={{ color: 'green', marginLeft: '0.5rem' }}>파일 있음</span>}
+                                                    {q.media && <span style={{ color: 'green', marginLeft: '0.5rem' }}>✓ 파일 있음</span>}
+
+                                                    {/* Media Preview */}
+                                                    {q.media && q.type === 'image' && (
+                                                        <div style={{ marginTop: '0.5rem' }}>
+                                                            <img
+                                                                src={q.media}
+                                                                alt="Preview"
+                                                                style={{ maxWidth: '200px', maxHeight: '150px', borderRadius: '0.5rem', border: '2px solid #ddd' }}
+                                                            />
+                                                        </div>
+                                                    )}
+                                                    {q.media && q.type === 'audio' && (
+                                                        <div style={{ marginTop: '0.5rem' }}>
+                                                            <audio controls style={{ width: '100%', maxWidth: '300px' }}>
+                                                                <source src={q.media} />
+                                                            </audio>
+                                                        </div>
+                                                    )}
                                                 </div>
                                             )}
                                         </div>
