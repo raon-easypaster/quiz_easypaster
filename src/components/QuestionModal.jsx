@@ -54,7 +54,7 @@ function QuestionModal({ question, teams, isHostMode, onClose, onAwardPoints }) 
 
                 <div className="modal-actions">
                     {!showAnswer ? (
-                        <button className="btn-answer" onClick={() => setShowAnswer(true)}>
+                        <button className="btn-answer" onClick={() => setShowAnswer(true)} translate="no">
                             정답 확인
                         </button>
                     ) : (
