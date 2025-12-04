@@ -1,0 +1,374 @@
+:root {
+  --color-primary: #3b6ea5;
+  --color-accent: #f6bb42;
+  --bg-color: #4a90e2;
+  /* Fallback blue */
+  --card-bg: #ffffff;
+
+  /* Row Colors - Keeping these vivid for the game board */
+  --color-row-100: #d9534f;
+  --color-row-200: #9cb85c;
+  --color-row-300: #967adc;
+  --color-row-400: #4fc1e9;
+  --color-row-500: #f6bb42;
+}
+
+body {
+  margin: 0;
+  font-family: 'Jua', 'Nanum Gothic', 'Apple SD Gothic Neo', sans-serif;
+  /* Fun, rounded fonts preferred */
+  background-color: #4a90e2;
+  /* Blue background from reference image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  max-width: 1400px;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Main Card Container */
+.main-card {
+  background-color: #fff;
+  border-radius: 2rem;
+  padding: 1rem;
+  /* Inner padding */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh;
+  position: relative;
+  border: 10px solid #fff;
+  /* White border effect */
+}
+
+.inner-content {
+  background-color: #5cb85c;
+  /* Green texture background */
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+  border-radius: 1.5rem;
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-title {
+  font-size: 3.5rem;
+  color: #333;
+  margin: 0;
+  text-shadow: 2px 2px 0px #fff;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+/* Footer */
+.app-footer {
+  text-align: center;
+  margin-top: auto;
+  padding-top: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Team Setup */
+.team-setup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.team-input-group {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+input {
+  padding: 0.8rem 1.5rem;
+  font-size: 1.2rem;
+  border: 2px solid #ddd;
+  border-radius: 2rem;
+  flex-grow: 1;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #3b6ea5;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #3b6ea5;
+  color: white;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  border-radius: 2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 0 #2a4d75;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #2a4d75;
+}
+
+.btn-primary:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #2a4d75;
+}
+
+/* Game Board */
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.category-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.category-oval {
+  background-color: #3b6ea5;
+  color: white;
+  width: 100%;
+  padding: 1rem 0;
+  border-radius: 2rem;
+  /* More rounded rectangle/oval hybrid */
+  font-size: 1.8rem;
+  font-weight: bold;
+  box-shadow: 0 4px 0 #2a4d75;
+  border: 2px solid white;
+  text-align: center;
+}
+
+.point-card {
+  width: 100%;
+  aspect-ratio: 16/10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  border: 3px solid white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.point-card:hover {
+  transform: translateY(-5px);
+}
+
+.point-card:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.point-card.completed {
+  background-color: #e0e0e0 !important;
+  color: #aaa;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+  border-color: #ccc;
+}
+
+/* Row Colors */
+.row-100 {
+  background-color: var(--color-row-100);
+  box-shadow: 0 4px 0 #c9302c;
+}
+
+.row-200 {
+  background-color: var(--color-row-200);
+  box-shadow: 0 4px 0 #7b9a3c;
+}
+
+.row-300 {
+  background-color: var(--color-row-300);
+  box-shadow: 0 4px 0 #7a5cb8;
+}
+
+.row-400 {
+  background-color: var(--color-row-400);
+  box-shadow: 0 4px 0 #3b9dbd;
+}
+
+.row-500 {
+  background-color: var(--color-row-500);
+  box-shadow: 0 4px 0 #d99a0b;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: white;
+  padding: 3rem;
+  border-radius: 2rem;
+  width: 80%;
+  max-width: 900px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 10px solid #f6bb42;
+}
+
+.question-text {
+  font-size: 3.5rem;
+  margin-bottom: 3rem;
+  font-weight: bold;
+  line-height: 1.3;
+  color: #333;
+}
+
+.answer-text {
+  font-size: 3rem;
+  color: #d9534f;
+  margin-bottom: 3rem;
+  font-weight: 900;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-answer {
+  background-color: #f6bb42;
+  color: #333;
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
+  border-radius: 2rem;
+  box-shadow: 0 4px 0 #d99a0b;
+}
+
+.btn-team {
+  background-color: #3b6ea5;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 0 #2a4d75;
+}
+
+.btn-close {
+  background-color: #ccc;
+  color: #555;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 0 #999;
+}
+
+/* Score Board */
+.score-board {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.team-score {
+  text-align: center;
+  background: white;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border: 2px solid #eee;
+}
+
+.team-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.score-value {
+  font-size: 2.5rem;
+  color: #3b6ea5;
+  font-weight: 900;
+}
+
+.score-controls button {
+  padding: 0.2rem 0.8rem;
+  margin: 0.5rem 0.2rem 0;
+  font-size: 1rem;
+  background-color: #f0f0f0;
+  border-radius: 0.5rem;
+  color: #555;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Admin Panel specific */
+.admin-panel {
+  color: #333;
+}
